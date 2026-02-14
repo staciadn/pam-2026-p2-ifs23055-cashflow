@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-
 class CashFlowRepository : ICashFlowRepository {
     private val data = mutableListOf<CashFlow>()
     private val dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")

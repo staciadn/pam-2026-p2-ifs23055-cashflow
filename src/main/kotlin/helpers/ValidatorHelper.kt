@@ -11,21 +11,22 @@ class ValidatorHelper(private val data: Map<String, Any?>) {
     }
 
     fun minAmount(field: String, min: Long, message: String) {
+        // Ubah apapun inputnya menjadi String dulu, lalu ke Long.
+        // Ini paling aman untuk data yang datang dari JSON API.
         val value = data[field]?.toString()?.toLongOrNull()
+
         if (value == null || value < min) {
             errors[field] = message
         }
     }
 
-    // TAMBAHKAN DUA FUNGSI INI:
     fun hasErrors(): Boolean = errors.isNotEmpty()
 
     fun getErrors(): Map<String, String> = errors
 
-    // Fungsi validate() yang lama (opsional jika ingin tetap dipakai)
     fun validate() {
         if (hasErrors()) {
-            // Kita biarkan Controller yang menangani responnya agar sesuai test
+            // Biarkan Controller yang menangani responnya
         }
     }
 }

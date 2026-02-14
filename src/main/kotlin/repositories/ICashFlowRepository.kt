@@ -4,7 +4,6 @@ import org.delcom.data.CashFlowQuery
 import org.delcom.entities.CashFlow
 import kotlin.time.Instant
 
-
 interface ICashFlowRepository {
     fun getAll(query: CashFlowQuery): List<CashFlow>
     fun getById(id: String): CashFlow?
