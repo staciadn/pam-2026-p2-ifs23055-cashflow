@@ -63,7 +63,7 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
         val id = call.parameters["id"] ?: throw AppException(400, "ID tidak boleh kosong!")
         val cashFlow = cashFlowService.getCashFlowById(id) ?: throw AppException(404, "Data tidak tersedia!")
 
-        call.respond(DataResponse("success", "Berhasil mengambil data cash-flow", mapOf("cashFlow" to cashFlow)))
+        call.respond(DataResponse("success", "Berhasil mengambil data catatan keuangan", mapOf("cashFlow" to cashFlow)))
     }
 
     suspend fun createCashFlow(call: ApplicationCall) {
